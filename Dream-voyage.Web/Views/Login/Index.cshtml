@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_RnALayout.cshtml";
+    ViewBag.Title = "Авторизация";
+}
+<body style="
+    background-image: url(../images/avtorizatia.jpg);">
+    <div class="form">
+        <h1>Авторизация</h1>
+        <div class="input-form">
+            <input type="text" placeholder="Логин">
+        </div>
+        <div class="input-form">
+            <input type="password" placeholder="Пароль">
+        </div>
+        <div class="input-form">
+            <input type="submit" value="Войти">
+        </div>
+        <a href="@Url.Action("Index", "Register")" class="forgot">Регистрация</a>
+    </div>
+</body>

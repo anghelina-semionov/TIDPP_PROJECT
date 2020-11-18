@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Voyage | @ViewBag.Title</title>
+    @Styles.Render("~/bundles/app/css")
+    @Styles.Render("~/bundles/game/css")
+
+    <link rel="shortcut icon" href="~/images/favicon.ico">
+</head>
+<body>
+    
+    @RenderBody()
+
+
+    @Scripts.Render("~/bundles/game/js")
+    @Scripts.Render("~/bundles/end/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

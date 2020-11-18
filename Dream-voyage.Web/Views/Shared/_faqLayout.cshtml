@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Voyage | @ViewBag.Title</title>
+    @Styles.Render("~/bundles/bootstrap/css")
+    @Styles.Render("~/bundles/fontawesome/css")
+    @Styles.Render("~/bundles/faqs/css")
+  
+
+    <link rel="shortcut icon" href="~/images/favicon.ico">
+</head>
+<body>
+
+    <header class="cd-header flex flex-column flex-center">
+        <div class="text-component text-center">
+            <h2>Часто задаваемые вопросы</h2>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <div class="elfsight-app-c6992c36-4891-4afb-8008-7dbbc2911320"></div>
+    <div class="elfsight-app-baee4e1a-6068-4d8f-bd2a-1345782d59be"></div>
+
+    @Scripts.Render("~/bundles/jquery/js")
+    @Scripts.Render("~/bundles/bootstrap/js")
+    @Scripts.Render("~/bundles/platform/js")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
