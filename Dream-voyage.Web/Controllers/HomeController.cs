@@ -57,5 +57,9 @@ namespace Dream_voyage.Web.Controllers
         {
             return View();
         }
+        public ActionResult Profile()
+        {
+            return View();
+        }
     }
 }
