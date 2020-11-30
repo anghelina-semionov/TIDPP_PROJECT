@@ -2,9 +2,13 @@
     Layout = "~/Views/Shared/_RnALayout.cshtml";
     ViewBag.Title = "Авторизация";
 }
-<body style="
-    background-image: url(../images/avtorizatia.jpg);">
-    <div class="form">
+
+@model Dream_voyage.Web.Models.UserRegister
+
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <form action="#">
         <h1>Авторизация</h1>
         <div class="input-form">
             <input type="text" placeholder="Логин">
@@ -16,5 +20,5 @@
             <input type="submit" value="Войти">
         </div>
         <a href="@Url.Action("Index", "Register")" class="forgot">Регистрация</a>
-    </div>
-</body>
+    </form>
+}

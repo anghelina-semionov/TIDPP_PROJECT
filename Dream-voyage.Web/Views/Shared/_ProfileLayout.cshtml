@@ -6,18 +6,19 @@
     <title>Dream Voyage | @ViewBag.Title</title>
     @Styles.Render("~/bundles/bootstrap/css")
     @Styles.Render("~/bundles/style/css")
+    @Styles.Render("~/bundles/profile/css")
     @*Включить кастомный css файл для страницы профиля*@
 
 
     <link rel="shortcut icon" href="~/images/favicon.ico">
 </head>
 <body>
-    <header>
+    @*<header>
         <nav class="navbar navbar-default navbar-fixed-top">
             @Html.Partial("_ProfileNavigationBar")
 
         </nav>
-    </header>
+    </header>*@
 
 
     @RenderBody()

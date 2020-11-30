@@ -3,5 +3,92 @@
     ViewBag.Title = "Профиль";
 }
 
-   
-   
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-4">
+            <div class="text-center card-box">
+                <div class="member-card">
+                    <div class="thumb-xl member-thumb m-b-10 center-block">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-circle img-thumbnail" alt="profile-image">
+                    </div>
+
+                    <div class="">
+                        <h4 class="m-b-5">John J. Doe</h4>
+                        <p class="text-muted"></p>
+                    </div>
+
+                    <div class="text-left m-t-40">
+                        
+                        
+                        <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">johndoe@bootdey.com</span></p>
+                        
+                    </div>
+                </div>
+            </div> <!-- end card-box -->
+        </div> <!-- end col -->
+
+
+        <div class="col-md-8 col-lg-9">
+            <div class="">
+                <div class="">
+                    <ul class="nav nav-tabs navtab-custom">
+                        
+                        <li class="active">
+                            <a href="#profile" data-toggle="tab" aria-expanded="true">
+                                <span class="visible-xs"><i class="fa fa-photo"></i></span>
+                                <span class="hidden-xs">МОИ ТУРЫ</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="#settings" data-toggle="tab" aria-expanded="false">
+                                <span class="visible-xs"><i class="fa fa-cog"></i></span>
+                                <span class="hidden-xs">НАСТРОЙКИ</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="profile">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="gal-detail thumb">
+                                        <a href="#" class="image-popup" title="Screenshot-2">
+                                            <img src="https://via.placeholder.com/400x300/FFB6C1" class="thumb-img" alt="work-thumbnail">
+                                        </a>
+                                        <h4 class="text-center">Gallary Image</h4>
+                                        <div class="ga-border"></div>
+                                        <p class="text-muted text-center"><small>Photography</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="settings">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label for="Username">Username</label>
+                                    <input type="text" value="john" id="Username" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Email">Email</label>
+                                    <input type="email" value="first.last@example.com" id="Email" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Password">Password</label>
+                                    <input type="password" placeholder="6 - 15 Characters" id="Password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="RePassword">Re-Password</label>
+                                    <input type="password" placeholder="6 - 15 Characters" id="RePassword" class="form-control">
+                                </div>
+                                <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div>
+    <!-- end row -->
+</div>

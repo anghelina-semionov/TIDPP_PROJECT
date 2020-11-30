@@ -25,6 +25,11 @@ namespace Dream_voyage.Web
            "~/Content/app.css", new CssRewriteUrlTransform()));
             bundles.Add(new StyleBundle("~/bundles/game/css").Include(
            "~/Content/game.css", new CssRewriteUrlTransform()));
+            // Профиль
+            bundles.Add(new StyleBundle("~/bundles/profile/css").Include(
+           "~/Content/profile.css", new CssRewriteUrlTransform()));
+            bundles.Add(new StyleBundle("~/bundles/app/css").Include(
+             "~/Content/app.min.css", new CssRewriteUrlTransform()));
 
 
             bundles.Add(new ScriptBundle("~/bundles/jquery/js").Include(
@@ -39,6 +44,14 @@ namespace Dream_voyage.Web
        "~/Scripts/game.js"));
             bundles.Add(new ScriptBundle("~/bundles/end/js").Include(
        "~/Scripts/end.js"));
+            // jQuery Validation
+            bundles.Add(new ScriptBundle("~/bundles/validation/js").Include(
+                "~/Scripts/jquery.validate.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/vendor/js").Include(
+         "~/Scripts/vendor.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/appmin/js").Include(
+          "~/Scripts/app.min.js"));
 
         }
     }

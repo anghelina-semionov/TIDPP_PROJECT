@@ -30,6 +30,10 @@ p {
 /*******************
     2.Helper
 *******************/
+.card {
+    border: none;
+    -webkit-box-shadow: 0 10px 35px 0 rgba(154, 161, 171, 0.1);
+    box-shadow: 0 10px 35px 0 rgba(154, 161, 171, 0.1);
 }
 
 .btn {
@@ -342,4 +346,7 @@ footer a {
 footer {
     background-color: #000000;
     padding-top: 20px;
-    border-top: 2px solid silve
+    border-top: 2px solid silver
+}
+
+
