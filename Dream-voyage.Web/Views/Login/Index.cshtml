@@ -1,24 +1,79 @@
 ﻿@{
-    Layout = "~/Views/Shared/_RnALayout.cshtml";
+    Layout = "~/Views/Shared/_ALayout.cshtml";
     ViewBag.Title = "Авторизация";
 }
 
-@model Dream_voyage.Web.Models.UserRegister
+@model Dream_voyage.Web.Models.UserLogin
 
-@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+@Html.ValidationSummary(true)
+@using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @id = "LoginForm" }))
 {
     @Html.AntiForgeryToken()
-    <form action="#">
+    <div class="form">
         <h1>Авторизация</h1>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="input-form">
-            <input type="text" placeholder="Логин">
+
+            @Html.TextBoxFor(m => m.Username, new
+       {
+           placeholder = "Логин",
+           value = "",
+           name = "username",
+           id = "username",
+           @class = "form-control"
+       })
+            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+
         </div>
+
         <div class="input-form">
-            <input type="password" placeholder="Пароль">
+
+            @Html.TextBoxFor(m => m.Password, new
+
+       {
+           @class = "form-control",
+           type = "password",
+           placeholder = "Пароль",
+           value = "",
+           name = "password",
+           id = "password"
+       })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
         </div>
         <div class="input-form">
             <input type="submit" value="Войти">
         </div>
         <a href="@Url.Action("Index", "Register")" class="forgot">Регистрация</a>
-    </form>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/validation/js")
+
+    <script type="text/javascript">
+        $(function () {
+
+            $("#LoginForm").validate({
+                rules: {
+                    Username: {
+                        required: true
+                    },
+                    Password: {
+                        required: true
+                    }
+                },
+                submitHandler: function (form) {
+                    form.submit();
+                },
+                errorPlacement: function (error, element) {
+                    $(element)
+                        .closest("form")
+                        .find("label[for='" + element.attr("id") + "']")
+                        .append(error);
+                },
+                errorElement: "span"
+            });
+        });
+    </script>
 }

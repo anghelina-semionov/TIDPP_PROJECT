@@ -28,7 +28,7 @@ namespace Dream_voyage.Web
             // Профиль
             bundles.Add(new StyleBundle("~/bundles/profile/css").Include(
            "~/Content/profile.css", new CssRewriteUrlTransform()));
-            bundles.Add(new StyleBundle("~/bundles/app/css").Include(
+            bundles.Add(new StyleBundle("~/bundles/appmincss/css").Include(
              "~/Content/app.min.css", new CssRewriteUrlTransform()));
 
 

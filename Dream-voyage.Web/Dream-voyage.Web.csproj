@@ -126,6 +126,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\UserRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -347,7 +348,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_faqLayout.cshtml" />
     <Content Include="Views\Home\FAQs.cshtml" />
-    <Content Include="Views\Shared\_RnALayout.cshtml" />
+    <Content Include="Views\Shared\_RLayout.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Shared\_TestLayout.cshtml" />
@@ -356,6 +357,7 @@
     <Content Include="Views\Shared\_ProfileLayout.cshtml" />
     <Content Include="Views\Shared\_ProfileNavigationBar.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
+    <Content Include="Views\Shared\_ALayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
