@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+    ViewBag.Title = "Результат!";
+}
+
+<div class="container">
+    <div id="end" class="flex-center flex-column">
+        <!--Переход на страницу с городом-->
+        <a id="url" class="link" onclick="ChangeHref()" href="">Нажмите, чтобы увидеть результат!</a>
+        <!--Сохранение результата-->
+        <button href=""
+                type="submit"
+                class="btn"
+                id="saveTour"
+                onclick="saveTour(event)">
+            Сохранить
+        </button>
+        <!--Зпустить заново тест-->
+        <a class="btn" href="@Url.Action("Test", "Home")">Пройти тест заново</a>
+        <!--Переход на главную страницу-->
+        <a class="btn" href="@Url.Action("Index", "Home")">Вернуться на главную</a>
+    </div>
+</div>
