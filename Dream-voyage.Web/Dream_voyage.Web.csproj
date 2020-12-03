@@ -133,6 +133,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\PasswordStorage.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\UserRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -365,6 +366,9 @@
     <Content Include="Views\Shared\_ProfileNavigationBar.cshtml" />
     <Content Include="Views\Home\Profile.cshtml" />
     <Content Include="Views\Shared\_ALayout.cshtml" />
+    <Content Include="Views\Login\LogOff.cshtml" />
+    <Content Include="Views\Home\AuthIndex.cshtml" />
+    <Content Include="Views\Shared\_AuthLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

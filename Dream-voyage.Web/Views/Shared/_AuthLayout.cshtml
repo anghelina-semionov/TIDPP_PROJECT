@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dream Voyage | @ViewBag.Title</title>
     @Styles.Render("~/bundles/bootstrap/css")
+    @*@Styles.Render("~/bundles/main/css")*@
     @Styles.Render("~/bundles/style/css")
-    @Styles.Render("~/bundles/profile/css")
-
+    @*@Styles.Render("~/bundles/site/css")*@
 
     <link rel="shortcut icon" href="~/images/favicon.ico">
 </head>
 <body>
+    <!--navbar-expand-md navbar-light-->
     <header>
         <nav class="navbar navbar-default navbar-fixed-top">
             @Html.Partial("_ProfileNavigationBar")

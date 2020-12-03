@@ -15,7 +15,7 @@ namespace Dream_voyage.Domain
 
         [Required]
         [Display(Name = "Пароль")]
-        [StringLength(50, MinimumLength = 8, ErrorMessage = "Пароль не может быть короче 8 символов.")]
+        [StringLength(100, MinimumLength = 8, ErrorMessage = "Пароль не может быть короче 8 символов.")]
         public string Password { get; set; }
     }
 }

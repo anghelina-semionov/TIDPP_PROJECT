@@ -5,13 +5,14 @@
             <span class="glyphicon glyphicon-menu-hamburger"></span>
         </button>
         <div class="navbar-left logo-custom">
-            <a href="@Url.Action("Index", "Home")"><img src="~/images/logo.png" width="55" height="40"></a>
+            <a href="@Url.Action("AuthIndex", "Home")"><img src="~/images/logo.png" width="55" height="40"></a>
         </div>
     </div>
     <div class="collapse navbar-collapse navbar-right" id="myNavbar">
         <ul class="nav navbar-nav">
-            <li><a href="@Url.Action("Index", "Home")">Главная</a></li>
+            <li><a href="@Url.Action("AuthIndex", "Home")">Главная</a></li>
             <li><a href="@Url.Action("Profile", "Home")">Профиль</a></li>
+            <li><a href="@Url.Action("LogOff", "Login")">Выйти</a></li>
         </ul>
     </div>
 </div>

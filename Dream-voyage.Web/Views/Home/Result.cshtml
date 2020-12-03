@@ -8,13 +8,22 @@
         <!--Переход на страницу с городом-->
         <a id="url" class="link" onclick="ChangeHref()" href="">Нажмите, чтобы увидеть результат!</a>
         <!--Сохранение результата-->
-        <button href=""
-                type="submit"
-                class="btn"
-                id="saveTour"
-                onclick="saveTour(event)">
-            Сохранить
-        </button>
+        @using (Html.BeginForm())
+        {
+           
+            @*<button href="@Url.Action("Profile", "Home")"
+                    type="submit"
+                    class="btn"
+                    id="saveTour"
+                    value=""
+                    onclick="saveTour()">
+                Сохранить
+            </button>*@
+            <input type="hidden" id="tourId" name="tourId" value="">
+            <input type="submit" class="btn" onclick="saveTour()" value="Сохранить">
+        }
+
+        @*<a class="btn" href="@Url.Action("Profile", "Home")">Сохранить</a>*@
         <!--Зпустить заново тест-->
         <a class="btn" href="@Url.Action("Test", "Home")">Пройти тест заново</a>
         <!--Переход на главную страницу-->

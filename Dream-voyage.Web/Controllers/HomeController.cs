@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,14 +9,18 @@ namespace Dream_voyage.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public String Index()
+        public ActionResult Index()
         {
-            String res = "Нет";
             if (User.Identity.IsAuthenticated)
             {
-                res = "Вы - " + User.Identity.Name;
+                return RedirectToAction("AuthIndex", "Home");
             }
-            return res;
+                return View();
+        }
+
+        public ActionResult AuthIndex()
+        {
+                return View();
         }
 
         public ActionResult Salzburg()
@@ -62,10 +67,37 @@ namespace Dream_voyage.Web.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public ActionResult Result(string tourId)
+        {
+            if(tourId != null)
+            {
+                return RedirectToAction("Profile", "Home", new { @id = tourId });
+            }
+            return View();
+        }
         [Authorize]
         public ActionResult Profile()
         {
-            return View();
-        }
+            var tourId = Request.QueryString["id"];
+            
+            return View(tourId);
+        }  
+        //[HttpPost]
+        //[Authorize]
+        //public ActionResult Profile(string tourId)
+        //{
+        //    if (User.Identity.IsAuthenticated)
+        //    {
+        //        if (tourId != null)
+        //        {
+
+        //            return View(tourId);
+        //        }
+        //        else return View(1);
+        //    }
+
+        //    return RedirectToAction("Index", "Login");
+        //}
     }
 }

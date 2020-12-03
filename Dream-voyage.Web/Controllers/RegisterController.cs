@@ -1,7 +1,10 @@
 ﻿using Dream_voyage.BusinessLogic;
 using Dream_voyage.Domain;
 using Dream_voyage.Web.Models;
+using PasswordSecurity;
+using System;
 using System.Linq;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -24,16 +27,18 @@ namespace Dream_voyage.Web.Controllers
                 DVUser user = null;
                 using (UserContext db = new UserContext())
                 {
-                    user = db.Users.FirstOrDefault(u => u.Username == model.Username && u.Password == model.Password);
+                    String hash = PasswordStorage.CreateHash(model.Password);
+                    user = db.Users.FirstOrDefault(u => u.Username == model.Username && u.Password == hash);
                 }
                 if (user == null)
                 {
                     using (UserContext db = new UserContext())
                     {
-                        db.Users.Add(new DVUser { Username = model.Username, Password = model.Password });
+                        String hash = PasswordStorage.CreateHash(model.Password);
+                        db.Users.Add(new DVUser { Username = model.Username, Password = hash });
                         db.SaveChanges();
 
-                        user = db.Users.Where(u => u.Username == model.Username && u.Password == model.Password).FirstOrDefault();
+                        user = db.Users.Where(u => u.Username == model.Username && u.Password == hash).FirstOrDefault();
                     }
                     if (user != null)
                     {
