@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dream_voyage.Domain
 {
-    public class Tour
+    public partial class Tour
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int TourId { get; set; }
+        [Required]
+        public string TourName { get; set; }
+        [Required]
+        public string TourHref { get; set; }
+        [Required]
+        public string TourImage { get; set; }
+
     }
 }

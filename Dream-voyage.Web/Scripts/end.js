@@ -28,7 +28,7 @@ const mostRecentScore = localStorage.getItem('mostRecentScore');
         }
     }
 
-    // Функция 
+    // Функция задания значения ID тура в соответствие с результатами
 function saveTour() {
     
     if (mostRecentScore >= 0 && mostRecentScore < 6) document.getElementById("tourId").value = "1";

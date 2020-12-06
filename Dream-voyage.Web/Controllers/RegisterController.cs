@@ -27,28 +27,28 @@ namespace Dream_voyage.Web.Controllers
                 DVUser user = null;
                 using (UserContext db = new UserContext())
                 {
-                    String hash = PasswordStorage.CreateHash(model.Password);
-                    user = db.Users.FirstOrDefault(u => u.Username == model.Username && u.Password == hash);
+                    user = db.DVUsers.FirstOrDefault(u => u.Username == model.Username);
                 }
                 if (user == null)
                 {
                     using (UserContext db = new UserContext())
                     {
                         String hash = PasswordStorage.CreateHash(model.Password);
-                        db.Users.Add(new DVUser { Username = model.Username, Password = hash });
+                        db.DVUsers.Add(new DVUser { Username = model.Username, Password = hash });
                         db.SaveChanges();
 
-                        user = db.Users.Where(u => u.Username == model.Username && u.Password == hash).FirstOrDefault();
+                        user = db.DVUsers.Where(u => u.Username == model.Username && u.Password == hash).FirstOrDefault();
                     }
                     if (user != null)
                     {
-                        FormsAuthentication.SetAuthCookie(model.Username, true);
-                        return RedirectToAction("Profile", "Home", user);
+                        model.UserId = user.UserId;
+                        FormsAuthentication.SetAuthCookie(model.UserId.ToString(), true);
+                        return RedirectToAction("Profile", "Home");
                     }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Ошибка!");
+                    ModelState.AddModelError("Username", "Пользователь с таким именем уже существует, пожалуйста, используйте другое.");
                 }
             }
             return View(model);

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dream_voyage.Domain
 {
-    public class DVUser
+    public partial class DVUser
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

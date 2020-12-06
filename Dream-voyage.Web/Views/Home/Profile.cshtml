@@ -3,7 +3,7 @@
     ViewBag.Title = "Профиль";
 }
 
-
+@model Dream_voyage.Web.Models.UserData
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <section class="section">
@@ -12,19 +12,18 @@
             <div class="text-center card-box">
                 <div class="member-card">
                     <div class="thumb-xl member-thumb m-b-10 center-block">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-circle img-thumbnail" alt="profile-image">
+                        @if (Model.ImageFilePath == null)
+                        {
+                            <img src="~/images/profile.png" class="img-circle img-thumbnail" alt="profile-image">
+                        }
+                        else
+                        {
+                            <img src="~/images/profile/@Model.ImageFilePath" class="img-circle img-thumbnail" alt="profile-image">
+                        }
                     </div>
-
                     <div class="">
-                        <h4 class="m-b-5">John J. Doe</h4>
+                        <h4 class="m-b-5">@Model.Username</h4>
                         <p class="text-muted"></p>
-                    </div>
-
-                    <div class="text-left m-t-40">
-
-
-                        <p class="text-muted font-13"><strong>Email :</strong> <span class="m-l-15">johndoe@bootdey.com</span></p>
-
                     </div>
                 </div>
             </div>
@@ -32,7 +31,6 @@
 
 
         <div class="col-md-8 col-lg-9">
-
             <div class="">
                 <div class="">
                     <ul class="nav nav-tabs navtab-custom">
@@ -53,45 +51,85 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="profile">
                             <div class="row">
-                                <div class="col-sm-4">
-                                    <div class="gal-detail thumb">
-                                        <a href="#" class="image-popup" title="Screenshot-2">
-                                            <img src="https://via.placeholder.com/400x300/FFB6C1" class="thumb-img" alt="work-thumbnail">
-                                        </a>
-                                        <h4 class="text-center">Gallary Image</h4>
-                                        <div class="ga-border"></div>
-                                        <p class="text-muted text-center"><small>Photography</small></p>
-                                    </div>
-                                </div>
+                                @if (Model.Tours.Count > 0)
+                                {
+                                    foreach (var tour in Model.Tours)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="gal-detail thumb">
+                                                <a href="~/Home/@tour.TourHref" class="image-popup" title="Screenshot-2">
+                                                    <img src="@tour.TourImage" class="thumb-img" alt="work-thumbnail">
+                                                </a>
+                                                <h4 class="text-center">@tour.TourName</h4>
+                                                <div class="ga-border"></div>
+                                                @using (Ajax.BeginForm("Delete", "Home", new AjaxOptions
+                                                {
+                                                    HttpMethod = "POST",
+                                                    OnSuccess = "success",
+                                                    OnFailure = "fail",
+                                                    UpdateTargetId = "resultTarget"
+                                                }))
+
+                                                {
+                                                    <input type="hidden" id="tourId" name="tourId" value="@tour.TourId">
+                                                    <div style="text-align:center">
+                                                        <input type="submit" class="link" value="Удалить">
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <div class="col-sm-4"> В списке пока нет туров.</div>
+                                }
                             </div>
                         </div>
+
                         <div class="tab-pane" id="settings">
-                            <form role="form">
-                                <div class="form-group">
-                                    <label for="Username">Username</label>
-                                    <input type="text" value="john" id="Username" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="Password">Password</label>
-                                    <input type="password" placeholder="8 Characters" id="Password" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="RePassword">Re-Password</label>
-                                    <input type="password" placeholder="8 Characters" id="RePassword" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="RePassword">Upload a different photo</label>
-                                    <label class="custom-file">
-                                        <input type="file" id="file" class="custom-file-input">
-                                    </label>
-                                </div>
-                                <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Save</button>
-                            </form>
+                            @using (Html.BeginForm("Profile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <form action="#">
+                                    <div class="form-group">
+                                        <label for="Username">Новый логин</label>
+                                        @Html.TextBoxFor(m => m.Username, new
+                                   {
+                                       placeholder = "",
+                                       title = "",
+                                       value = "",
+                                       name = "username",
+                                       id = "username",
+                                       @class = "form-control"
+                                   })
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Password">Новый пароль</label>
+                                        @Html.TextBoxFor(m => m.Password, new
+                                   {
+                                       placeholder = "",
+                                       title = "",
+                                       value = "",
+                                       type = "password",
+                                       name = "password",
+                                       id = "password",
+                                       @class = "form-control"
+                                   })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Загрузить фотографию</label>
+                                        @*<label class="custom-file">
+                                                <input type="file" id="file" class="custom-file-input">
+                                            </label>*@
+                                        @Html.TextBoxFor(m => m.ImageFile, new { type = "file" })
+                                    </div>
+                                    <button class="btn btn-primary waves-effect waves-light w-md" type="submit">Сохранить изменения</button>
+                                </form>
+                            }
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
 </section>

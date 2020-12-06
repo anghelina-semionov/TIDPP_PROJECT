@@ -10,6 +10,9 @@ namespace Dream_voyage.BusinessLogic
         {
         }
 
-        public virtual DbSet<DVUser> Users { get; set; }
+        public virtual DbSet<DVUser> DVUsers { get; set; }
+        public virtual DbSet<DVUserData> DVUserDatas { get; set; }
+        public virtual DbSet<Tour> Tours { get; set; }
+        public virtual DbSet<UserTour> UserTours { get; set; }
     }
 }

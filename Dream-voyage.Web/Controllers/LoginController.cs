@@ -28,7 +28,7 @@ namespace Dream_voyage.Web.Controllers
                 DVUser user = null;
                 using (UserContext db = new UserContext())
                 {
-                    user = db.Users.FirstOrDefault(u => u.Username == model.Username);
+                    user = db.DVUsers.FirstOrDefault(u => u.Username == model.Username);
                     
                 }
                 if (user != null)
@@ -36,8 +36,9 @@ namespace Dream_voyage.Web.Controllers
                     bool res = PasswordStorage.VerifyPassword(model.Password, user.Password);
                     if (res == true)
                     {
-                        FormsAuthentication.SetAuthCookie(model.Username, true);
-                        return RedirectToAction("Profile", "Home", user);
+                        model.UserId = user.UserId;
+                        FormsAuthentication.SetAuthCookie(model.UserId.ToString(), true);
+                        return RedirectToAction("Profile", "Home");
                     }
                     else
                     {
