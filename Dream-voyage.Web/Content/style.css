@@ -89,7 +89,7 @@ p {
     position: relative;
     padding-top: 190px;
     background-image: url('../images/main.jpg');
-    height: 800px;
+    height: 1000px;
 }
 
 .container-custom {
@@ -123,7 +123,6 @@ p {
     .bg-home {
         padding-top: 130px;
     }
-
 }
 
 /*ORIGINAL CSS*/
@@ -136,16 +135,17 @@ p {
     text-align: center;
 }
 
-.img-holder .link {
-    position: absolute;
-    bottom: 10px; your button position
-    right: 10px; your button position
-}
+    .img-holder .link {
+        position: absolute;
+        bottom: 10px;
+        your button position right: 10px;
+        your button position
+    }
 
 .bg-home .dws {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 250px;
+    left: 20px;
     -webkit-transform: translate(-50%,-50%);
     -moz-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
@@ -165,7 +165,7 @@ p {
     text-align: center;
     line-height: 60px;
     font-family: 'Lora',sans-serif;
-    position: center;
+    position: fixed;
     transition: .5s;
     overflow: hidden !important;
 }
@@ -303,19 +303,18 @@ tr:hover td {
 footer a {
     color: black;
     font-size: 14px;
-    margin-left: 10px;
+    margin-left: 12px;
 }
 
 .social a {
     font-size: 2em;
-    padding: 5px;
+    padding: 10px;
 }
 
 .fa-facebook {
     color: #3b5998
 }
 
-.nav-link
 .fa-vk {
     color: #3b5998
 }
@@ -324,17 +323,18 @@ footer a {
     color: #FF0000
 }
 
+.fa-twitter {
+    color: #3b5998
+}
+
 .fa-instagram {
     color: #DA70D6
 }
 
-.fa-faq {
-    color: #DA70D6
-}
 
     .fa-facebook:hover, .fa-vk:hover,
     .fa-youtube:hover, .fa-instagram:hover,
-    .fa-twitter:hover, .fa-faq:hover {
+    .fa-twitter:hover {
         color: #800080;
     }
 
@@ -343,5 +343,3 @@ footer {
     padding-top: 20px;
     border-top: 2px solid silver
 }
-
-

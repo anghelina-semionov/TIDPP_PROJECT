@@ -1,10 +1,22 @@
 ﻿<div class="container">
     <div class="row padding text-center">
-        <div class="col-12">
+        <div class="col-12" style="margin-left: 20px">
             <nav>
-                <a href="@Url.Action("FAQs","Home")">FAQ</a>
+                <a href="@Url.Action("FAQs","Home")" style="color:#ffffff">FAQ</a>
             </nav>
-            <h2>Наши контакты</h2>
+
+            <div class="col-12">
+                <style>
+
+                    .about {
+                        margin-left: 20px;
+                        color: #ffffff;
+                    }
+                </style>
+
+                <h2><span class="about">Наши контакты</span></h2>
+            </div>
+
         </div>
         <div class="logo">
             <a href="@Url.Action("Index","Home")"><img class="graficlogo" src="~/images/123dmiclogo.png" alt"Logo"></a>
@@ -15,7 +27,7 @@
             <a href="#"><i class="fab fa-youtube"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-faq"></i></a>
+
         </div>
     </div>
 </div>
